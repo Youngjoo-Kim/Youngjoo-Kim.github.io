@@ -38,7 +38,7 @@ comments:
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
-    # https://developers.facebook.com/docs/plugins/comments
+    https://www.facebook.com/simple0913
     appid                :
     num_posts            : # 5 (default)
     colorscheme          : # "light" (default), "dark"
@@ -109,15 +109,15 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "Kim Young Joo"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
-  email            :
+  bio              : "Autonomous Driving Researcher"
+  location         : "Republic of Korea, Seoul"
+  email            : "simple0913@outlook.kr"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: mailto:your.name@email.com
+      url: mailto:simple0913@outlook.kr
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
@@ -126,13 +126,13 @@ author:
       # url: "https://twitter.com/"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
-      # url: "https://facebook.com/"
+      url: "https://facebook.com/simple0913"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       # url: "https://github.com/"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+      url: "https://instagram.com/young_s_place"
 
 # Site Footer
 footer:
@@ -142,7 +142,7 @@ footer:
       # url:
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
-      # url:
+      # url: 
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       # url:
