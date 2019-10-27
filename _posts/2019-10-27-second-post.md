@@ -1,6 +1,6 @@
 ---
 title: "Markdown using method"
-date: 2019-10-27 20:20:28 -0400
+date: 2019-10-27 22:30:28 -0400
 categories: Markdown Study
 ---
 
@@ -230,20 +230,7 @@ __double underscores__
 ++underline++
 ~~cancelline~~
 
-## 2.8. 이미지
-```
-![Alt text](/path/to/img.jpg)
-![Alt text](/path/to/img.jpg "Optional title")
-```
 
-![Alt text](/C:\Users\82105\Documents\GitHub\autonomous_driving_image_store\sample.jpg)
-
-예
-```
-<img src="/path/to/img.jpg" width="450px" height="300px" title="px(픽셀) 크기 설정" alt="RubberDuck"></img><br/>
-<img src="/path/to/img.jpg" width="40%" height="30%" title="px(픽셀) 크기 설정" alt="RubberDuck"></img>
-```
-<img src="/C:\Users\82105\Documents\GitHub\autonomous_driving_image_store\sample.jpg" width="1000px" height="200px" title="px(픽셀) 크기 설정" alt="Facebookprofile"></img><br/>
 
 ## 3. 정리
 Markdown은 일반 텍스트 편집기에서도 손쉽게 작성이 가능한 마크업 언어이다. 단, 기본 문법을 익히기 위한 듀토리얼 정도만 해본다면 적응하는데 효과적일 것이다. 본인은 "Haroopad"를 활용하여 문서를 편집하고 있지만, 이외에도 다양한 도구와 플랫폼이 존재하고 있어 이용하는데 어렵지 않다. 마크다운과 Haroopad를 활용하여 GitHub pages를 보다 빠르고 쉽게 업로드 할 수 있게 되었다.
