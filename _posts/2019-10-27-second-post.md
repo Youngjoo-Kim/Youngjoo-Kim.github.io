@@ -191,18 +191,17 @@ end code block.
 ```
 [link keyword][id]
 [id]: URL "Optional Title here"
-
 Link: [Google][googlelink]
-[googlelink]: https://google.com "Go google"
+[googlelink]: (https://google.com "Go google")
 ```
 
-Link: [Google][googlelink] [googlelink]: https://google.com "Go google"
+Link: [Google][googlelink] [googlelink]: (https://google.com "Go google")
 
 **- 인라인 링크**
 ```
 syntax: [Title](link)
 ```
-Link: [Google](link)
+Link: [Google](https://google.com)
 
 **- 자동 연결**
 ```
