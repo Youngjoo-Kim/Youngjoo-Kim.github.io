@@ -7,24 +7,24 @@ categories: ROS Programming
 ##### **오늘은 Visual SLAM이 무엇인지에 대하여 세 가지 글을 읽어볼까 합니다 :)**
 
 # 1) Introduction to SLAM
-### **: A very brief outline of simultaneous localisation and mapping**
+##### **: A very brief outline of simultaneous localisation and mapping**
 ## What is SLAM?
-**==SLAM은 simultaneous localisation과 mapping을 나타내며 두 부분으로 구성된 모바일 로봇 공학에서 매우 중요한 문제를 해결하는 개념입니다.==**
-- **	Mapping : **로봇이 있는 환경의 지도를 작성
+==**SLAM은 simultaneous localisation과 mapping을 나타내며 두 부분으로 구성된 모바일 로봇 공학에서 매우 중요한 문제를 해결하는 개념입니다.**==
+- **Mapping :** 로봇이 있는 환경의 지도를 작성
 - **Localisation :**로봇의 상대 위치 및 방향을 추적하면서 지도를 사용하여 환경을 탐색
 
 SLAM 문제를 효과적으로 해결하면 자율 주행 자동차에서 로봇 청소기에 이르기까지 다양한 응용 프로그램을 갖춘 자율형(자체 제어식)모바일 로봇에서 많은 가능성이 열립니다.
-**이 문제를 해결하는 일반적인 방법은 '다중 오프셋 카메라', 'Depth 센서' 등을 사용하는 것을 포함하지만, 이곳에서는 단일 카메라만 사용하여 관찰되는 이미지를 분석하는 =="monocular SLAM"==에 중점을 둡니다.**
+이 문제를 해결하는 일반적인 방법은 '다중 오프셋 카메라', 'Depth 센서' 등을 사용하는 것을 포함하지만, 이곳에서는 단일 카메라만 사용하여 관찰되는 이미지를 분석하는 =="monocular SLAM"==에 중점을 둡니다.
 
 SLAM 기술은 모바일 로봇뿐만 아니라 Snapchat의 얼굴 추적 필터 또는 SONY의 AR 효가와 같은 증강현실(AR)에도 적용될 수 있습니다.
 
 ## How visual SLAM works
 SLAM의 작동 방식은 진행중인 프로세스의 네 가지로 나눌 수 있습니다.
-**==1. Visual SLAM을 구현하는 첫 단계는 카메라에서 비디오의 이미지 프레임, 각 이미지에서 일반적으로 선 (예를 들면, 테이블 또는 벽의 가장자리)과 모서리와 같은 중요하고 뚜렷한 랜드마크를 식별하는 것입니다.==**
+==**1. Visual SLAM을 구현하는 첫 단계는 카메라에서 비디오의 이미지 프레임, 각 이미지에서 일반적으로 선 (예를 들면, 테이블 또는 벽의 가장자리)과 모서리와 같은 중요하고 뚜렷한 랜드마크를 식별하는 것입니다.**==
 
-**==2. 환경이 각 프레임 사이에서 변하지 않는다고 가정하면, 연속 또는 가까운 프레임의 랜드마크는 카메라 환경의 3D 객체와 연관지어 집니다.==**
+==**2. 환경이 각 프레임 사이에서 변하지 않는다고 가정하면, 연속 또는 가까운 프레임의 랜드마크는 카메라 환경의 3D 객체와 연관지어 집니다.**==
 
-**==3. 그런 다음 랜드마크를 함께 표시하여 이미 본 물체와 다시 연관시킵니다.==** 데이터는 카메라의 위치(Localization : 현지화)와 환경지도(Mapping)에 대한 정보를 생성하는데 사용됩니다.
+==**3. 그런 다음 랜드마크를 함께 표시하여 이미 본 물체와 다시 연관시킵니다.**== 데이터는 카메라의 위치(Localization : 현지화)와 환경지도(Mapping)에 대한 정보를 생성하는데 사용됩니다.
 
 SLAM 알고리즘은 비디오 프레임과 랜드마크의 상당수 체인(Chain)을 통해 데이터를 사용하여 카메라가 이동한 경로의 추정치를 estimation합니다. 그리고 카메라가 관찰한 환경에서의 모든 물체와 특징의 3D 공간에서의 위치를 추정합니다. 또한, 환경의 다른 특징을 기준으로 카메라의 위치를 추정합니다.
 
@@ -35,11 +35,12 @@ SLAM 알고리즘은 비디오 프레임과 랜드마크의 상당수 체인(Cha
 **모바일 로봇 공학과 관련된 많은 실제 factor들로 인해 환경의 3D 맵에서 랜드마크 및 객체 계산 오류는 불가피합니다.**
 이는 수학적 오류의 축적, 분석된 비디오 프레임의 품질, 카메라 자체의 랜드마크 및 결함을 정확하게 식별하는데 어려움이 있기 때문입니다. **monocular SLAM에서 특히 중요한 문제는 '깊이 추정'입니다. 이를 고려한 방법이 ==EMF==이며 이것을 사용합니다.**
 
-**==확장 칼만 필터 알고리즘은 지도에서 로봇의 위치와 랜드마크의 위치에 대한 불확실성을 추적합니다.==**
+==**확장 칼만 필터 알고리즘은 지도에서 로봇의 위치와 랜드마크의 위치에 대한 불확실성을 추적합니다.**==
 이 누적 데이터를 사용하여 로봇의 3D맵에서 로봇 및 객체의 위치에 대해서 업데이트 된, '최상의 추정치를 결정하는 계산을 수행'합니다. 이것은 로봇의 지도와 실제 환경 사이의 오류가 쌓이지 않고 "drift apart(떨어져)" 있다는 것을 의미합니다.
 
 
 **- Reference list**
+
 1.Riisgaard S, Blas MR. SLAM for dummies: A Tutorial approach to simultaneous localization and mapping by the ‘dummies’. [Online] Massachusetts Institute of Technology, 2005 [Accessed: 31st January 2016]. Available from: http://ocw.mit.edu/courses/aeronautics-and-astronautics/16-412j-cognitive-robotics-spring-2005/projects/1aslam_blas_repo.pdf [Accessed: 31st January 2016]
 2.Bonin-Font F, Ortiz A, Oliver G. Visual navigation for mobile robots: A survey. [Online] Journal of Intelligent and Robotic Systems. Kluwer Academic Publishers; p. 263–296. Available from: http://dl.acm.org/citation.cfm?id=1452818 [Accessed: 31st January 2016]
 3.Burbridge C, Spacek L, Condell J, Nehmzow U. Monocular Omnidirectional vision based robot Localisation and mapping. [Online] [Accessed: 31st January 2016]. Available from: https://www.cs.bham.ac.uk/~burbrcjc/papers/burbridge-etc08.pdf [Accessed: 31st January 2016]
@@ -83,6 +84,7 @@ Xbox 360 및 Xbox One 게임 콘솔을 위해 Microsoft에서 주로 만든 Kine
 -2012 년에 발표 된 보고서에서 Wang et al. 단일 카메라 외에 관성 센서를 사용하여 로봇의 움직임을 관찰하여 환경에서의 위치에 대한 추정치를 향상시키는 SLAM 알고리즘을 제시합니다. (7)
 
 **- Reference list**
+
 1.Royer E, Lhuillier M, Dhome M, Lavest J-M. Monocular vision for mobile robot localization and autonomous navigation. International Journal of Computer Vision. [Online] 2007;74(3): 237–260. Available from: http://maxime.lhuillier.free.fr/pIjcv07.pdf [Accessed: 31st January 2016]
 2.Prisacariu VA, Kähler O, Murray DW, Reid I. Simultaneous 3D tracking and reconstruction on a mobile phone. In: IEEE (ed.) 2013 IEEE International Symposium on Mixed and Augmented Reality. Adelaide, Australia: IEEE; 2013. p. 89–98.
 3.Leutenegger S. Group project supervision meeting. 11th February 2016.
