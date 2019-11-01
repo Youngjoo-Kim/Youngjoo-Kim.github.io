@@ -9,7 +9,7 @@ categories: ROS Programming
 # 1) Introduction to SLAM
 ##### **: A very brief outline of simultaneous localisation and mapping**
 ## What is SLAM?
-==**SLAM은 simultaneous localisation과 mapping을 나타내며 두 부분으로 구성된 모바일 로봇 공학에서 매우 중요한 문제를 해결하는 개념입니다.**==
+==SLAM은 simultaneous localisation과 mapping을 나타내며 두 부분으로 구성된 모바일 로봇 공학에서 매우 중요한 문제를 해결하는 개념입니다.==
 - **Mapping :** 로봇이 있는 환경의 지도를 작성
 - **Localisation :**로봇의 상대 위치 및 방향을 추적하면서 지도를 사용하여 환경을 탐색
 
